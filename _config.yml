@@ -1,0 +1,28 @@
+# Permalinks
+permalink: pretty
+
+# Setup
+title: Mohit Deshpande
+tagline: Defining the Edge
+url: mohitd.github.io
+baseurl: ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+# About/contact
+name: Mohit Deshpande
+email: deshpande.75@osu.edu
+twitter_username: mohidesh
+github_username: mohitd
+
+# Top nav bar
+pages_list: {'About': '/about', 'Feed': '/atom.xml'}
+
+# Gems
+gems:
+  - jekyll-gist
