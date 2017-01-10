@@ -5,6 +5,11 @@ excerpt: "This first post covers introductions, motivations, and rhetorical ques
 comments: true
 ---
 
+<div class="imgcap">
+	<img src="/assets/img/script-on-ice.jpg">
+	Script Ohio on Ice
+</div>
+
 Hello world! Don't all beginners start off doing something like that? In the past, I have had my own blog and have written posts for it, but there wasn't any impetus driving me to continue writing. Eventually, school consumed my usual writing time. It's been a while since I was writing personal blog posts, i.e. not through the enticement of a company or for money, and I'm willing to give it another shot.
 
 But first, I'd better introduce myself. Hello! I am Mohit Deshpande, an undergraduate student and researcher in the Computer Science and Engineering Department at Ohio State University. I'm currently working on my thesis in Databases and Human-Computer Interaction. My research interests are in Human-Computer Interaction, computer vision, and deep learning, and I try to keep up-to-date with ongoing work in those fields. I'm planning on going to graduate school for a Ph.D. after I receive my B.S. There's more information about me on the [about]({{ site.baseurl }}/about) page. 

@@ -3,7 +3,10 @@ layout: page
 title: About
 ---
 
-![headshot](/assets/img/headshot.jpg "That's me!")
+<div class="imgcap">
+	<img src="/assets/img/headshot.jpg">
+	That's Me!
+</div>
 
 I am Mohit Deshpande, an undergraduate student in Computer Science and Engineering at Ohio State University. I'm also a researcher currently working on my thesis in Databases and Human-Computer Interaction and a member of the [Interactive Data Systems](http://interact.osu.edu/) group under [Dr. Arnab Nandi](arnab.org). My research interests lie in Human-Computer Interaction, Computer Vision, and deep learning. I plan on doing a Ph.D. after I graduate for the essence of the title: the love of knowledge.
 
