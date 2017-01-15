@@ -4,7 +4,7 @@ title: About
 ---
 
 <div class="imgcap">
-	<img src="/assets/img/headshot.jpg">
+	<img src="/assets/about/headshot.jpg">
 	That's Me!
 </div>
 

@@ -2,11 +2,10 @@
 layout: post
 title: Hello World!
 excerpt: "This first post covers introductions, motivations, and rhetorical questions"
-comments: true
 ---
 
 <div class="imgcap">
-	<img src="/assets/img/script-on-ice.jpg">
+	<img src="/assets/hello-world/script-on-ice.jpg">
 	Script Ohio on Ice
 </div>
 
