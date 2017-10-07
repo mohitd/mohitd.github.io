@@ -1,8 +1,14 @@
 ---
-layout: post
 title: "Depth Perception: The Next Big Thing in Computer Vision"
 excerpt: "Devices like the HoloLens and Tango have depth-sensing capabilities, allowing for a completely different level of augmented reality."
 comments: true
+date: 2017-01-15
+permalink: /posts/2017/01/depth-perception/
+tags:
+  - computer vision
+  - depth
+  - hololens
+  - tango
 ---
 
 Depth perception is the ability of a device to gather 3D depth information about their environment, relative to the position of the device. We can do many things with just depth information:
@@ -17,24 +23,21 @@ Although we can accomplish much using just depth information, we can accomplish 
 
 Combining camera and depth information is not new. There have been consumer devices, like the [Microsoft Kinect](https://developer.microsoft.com/en-us/windows/kinect), that use images and depth to detect body pose. The Kinect is a stationary device however. Dragging a Kinect with you wherever you go doesn't seem like a good idea. Wouldn't it be great if we could use depth information to improve our daily lives on-the-go?
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/peanut-phone.jpg">
-	The revolutionary Peanut phone. It's very chunky for a phone from 2014, but that's because it's stuffed with high-fidelity sensors. Only 200 of these went out to research labs, universities, and developers around the globe. 
-</div>
+![The Peanut phone](/images/depth-perception/peanut-phone.jpg)
+
+The revolutionary Peanut phone. It's very chunky for a phone from 2014, but that's because it's stuffed with high-fidelity sensors. Only 200 of these went out to research labs, universities, and developers around the globe. 
 
 _Enter Google Tango._ Back in 2014, led by Johnny Lee, Google's research division ATAP was able to condense the necessary sensors into a smartphone called the Peanut phone in-testing. The Peanut phone housed an infrared depth sensor that it used to gather depth information along with a myriad of other sensors already found on most modern smartphones. They also gave it a 170-degree fisheye camera for tracking the device along all three spatial dimensions. The Peanut phones were discontinued and replaced with the Yellowstone 7-inch tablets with similar specifications and even more computing power.
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/lenovo-phab2-pro.jpg">
-	The first consumer device with depth-sensing capabilities: Lenovo Phab 2 Pro. Much less chunkier than the Peanut phone. And it only took two years to go from research prototype to fully-fledged consumer device!
-</div>
+![Lenovo Phab 2 Pro](/images/depth-perception/lenovo-phab2-pro.jpg)
+	
+The first consumer device with depth-sensing capabilities: Lenovo Phab 2 Pro. Much less chunkier than the Peanut phone. And it only took two years to go from research prototype to fully-fledged consumer device!
 
 Now let's skip ahead to 2016. The first Tango-enabled phone, the Lenovo Phab 2 Pro, appeared on the market just last year in 2016. Similar to its ancestors, it housed a depth camera and a 16MP wide-angle camera. At the past Google I/O, there were many talks that showcased not only the capabilities of Tango, but also the APIs that can allow developers to take full advantage of the Tango's multitude of sensors for their own app. Tango devices aren't just some fancy, flashy devices used only for demos; they have an ever-growing set of APIs that developers can easily use to add more functionality their app. 
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/hololens.jpg">
-	Microsoft's augmented reality headset: the HoloLens. When I put it on, it was a bit heavier than I expected, but that's because it's also full of awesome sensors and the entirely of Windows as well.
-</div>
+![HoloLens](/images/depth-perception/hololens.jpg)
+
+Microsoft's augmented reality headset: the HoloLens. When I put it on, it was a bit heavier than I expected, but that's because it's also full of awesome sensors and the entirely of Windows as well.
 
 Microsoft has started to buy into this notion of depth sensing because they developed the HoloLens, which first shipped in 2016. The HoloLens takes all of the awesome aspects of Tango and puts it in a wearable visor. Since you don't need to hold up HoloLens, they've also added some gesture support, though they [discourage people from creating their own gestures](https://forums.hololens.com/discussion/549/creating-a-new-gesture). Unfortunately, the HoloLens is much more expensive than Tango ever was (about $3000), but it's also a complete Windows PC. I suspect the price point for this will go down in the coming years as it did with Tango (originally $1024).
 
@@ -77,18 +80,15 @@ As I've mentioned before, one thing that depth information is particularly usefu
 
 Think about it like this:
 
-<div class="message">
-	Reality is in 3D; to augment it, in the first place, we need to capture its full depth and richness.
-</div>
+> Reality is in 3D; to augment it, in the first place, we need to capture its full depth and richness.
 
 This statement is the culmination of months of thought I spent trying to answer the question "why does depth information even matter when it comes to augmented reality." To begin to augment reality, we have to consider that reality is in 3D, and depth information is what we use to measure 3D spaces. To perform any visualizations or drawings in a space, depth information is useful to have, and the software can use this information in a few key ways to provide that immersive experience.
 
 ## Area Learning
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/area-learning.gif">
-	Tango's area learning uses mysterious features to capture information about a space and store it in an Area Description File (ADF). These files have quick-indexing characteristics so Tango can immmediately recognize if it has been in this space before.
-</div>
+![Area Learning with Tango]("/images/depth-perception/area-learning.gif)
+
+Tango's area learning uses mysterious features to capture information about a space and store it in an Area Description File (ADF). These files have quick-indexing characteristics so Tango can immediately recognize if it has been in this space before.
 
 We can take depth information a step further and "remember" a space. Tango calls this **area learning** and only gives a high-level definition of how it works on their [website](https://developers.google.com/tango/overview/area-learning):
 
@@ -98,10 +98,9 @@ Tango probably uses a slew of sensors and camera data (SIFT/SURF/ORB features, r
 
 ## Motion Tracking
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/motion-tracking.gif">
-	Motion tracking is actually tracking the path of the Tango device, relative to when we started an application. Using gyroscope, accelerometer, and depth data, we can position our device in a 3D space.
-</div>
+![Motion Tracking](/images/depth-perception/motion-tracking.gif)
+
+Motion tracking is actually tracking the path of the Tango device, relative to when we started an application. Using gyroscope, accelerometer, and depth data, we can position our device in a 3D space.
 
 Since I brought it up, I might as well mention something about **motion tracking**. First of all, it has a confusing name because motion tracking in the traditional computer vision sense means that we're interested in tracking a particular object through frames of a video. In the context of Tango, we're tracking the _device itself_ through 3D space. While this isn't something that _necessarily_ requires depth information (you _might_ be able to manage using optical flow), it certainly helps improve accuracy and reduces drift errors. Motion tracking, in Tango context, combines with area learning to help position the user _as well as_ any visualizations in the learned space. 
 
@@ -123,17 +122,10 @@ Depth perception on mobile devices is something to keep an eye on as we move for
 
 In most devices like Tango and the HoloLens, depth is usually determined using infrared sensors and a technique called _time-of-flight_. 
 
-<div class="imgcap">
-	<img src="/assets/depth-perception/time-of-flight.png">
-	Visualization of time-of-flight.
-</div> 
+![Visualization of time-of-flight]("/images/depth-perception/time-of-flight.png)
 
-We need an IR transmitter and receiver. The transmitter will send an infrared signal at a particular frequency $$f$$, and the receiver will collect that same signal. Since we're using infrared, an electromagnetic wave, we know it must travel at the speed of light $$c$$. When the signal hits the receiver, since it must have travelled a nonzero distance, there's going to be some time shift in our signal $$\Delta\phi$$.
+We need an IR transmitter and receiver. The transmitter will send an infrared signal at a particular frequency, and the receiver will collect that same signal. Since we're using infrared, an electromagnetic wave, we know it must travel at the speed of light. When the signal hits the receiver, since it must have traveled a nonzero distance, there's going to be some time shift in our signal.
 
-Knowing the just the frequency $$f$$ and time shift $$\Delta\phi$$, we can use the following formula to compute how far away the object was when the signal bounced off of it, the depth $$d$$, in other words.
-
-$$
-d = \frac{c}{2}\frac{\Delta\phi}{2\pi f}
-$$
+Knowing the just the frequency and time shift, we can compute how far away the object was when the signal bounced off of it.
 
 In essence, an IR transmitter and receiver is all we need, but the sensors on devices used in research are usually advanced enough to capture thousands of data points per second. 

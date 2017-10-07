@@ -1,2 +1,1 @@
-# My Website
-This is my website. Pretty self-explanatory, right?
+My academic website (designed based on academicpages.github.io)
