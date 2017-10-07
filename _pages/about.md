@@ -16,3 +16,4 @@ Research Interests
 ----
 - Computer Vision
 - Natural Language Processing
+- Machine Learning
