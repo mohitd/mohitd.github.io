@@ -3,12 +3,6 @@ title: "Depth Perception: The Next Big Thing in Computer Vision"
 excerpt: "Devices like the HoloLens and Tango have depth-sensing capabilities, allowing for a completely different level of augmented reality."
 comments: true
 date: 2017-01-15
-permalink: /posts/2017/01/depth-perception/
-tags:
-  - computer vision
-  - depth
-  - hololens
-  - tango
 ---
 
 Depth perception is the ability of a device to gather 3D depth information about their environment, relative to the position of the device. We can do many things with just depth information:
@@ -116,13 +110,11 @@ Depth perception on mobile devices is something to keep an eye on as we move for
 
 (By the way, watch [this](https://youtu.be/yvgPrZNp4So) talk by Tango Lead Johnny Lee at Google IO to see a ton of cool Tango demos!)
 
-# Appendix
-
-## How does depth perception actually work?
+## Sidebar: How does depth perception actually work?
 
 In most devices like Tango and the HoloLens, depth is usually determined using infrared sensors and a technique called _time-of-flight_. 
 
-![Visualization of time-of-flight]("/images/depth-perception/time-of-flight.png)
+![Visualization of time-of-flight](/images/depth-perception/time-of-flight.png)
 
 We need an IR transmitter and receiver. The transmitter will send an infrared signal at a particular frequency, and the receiver will collect that same signal. Since we're using infrared, an electromagnetic wave, we know it must travel at the speed of light. When the signal hits the receiver, since it must have traveled a nonzero distance, there's going to be some time shift in our signal.
 
