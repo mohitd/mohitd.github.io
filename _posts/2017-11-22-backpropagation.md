@@ -3,6 +3,7 @@ title: "Understanding Backpropagation"
 excerpt: "I'll discuss the backpropagation algorithm on various levels using concrete examples."
 comments: true
 date: 2017-11-22
+mathjax: true
 ---
 
 Backpropagation is arguable one of the most important algorithms in all of computer science. It's certainly the most important in neural networks and deep learning. Unfortunately, many students don't really understand what it is, why it is needed, or what it actually computes. There seems to be two prevalent types of explanations: the super-high-level, hand-wavy one and the "boards and boards of equations" one. In reality, these are really two different views of the same thing.  Having a solid understanding of backpropagation means you can explain it in both of these ways. My goal is to provided an alternate explanation of backpropagation that's sandwiched right in between these two views.
@@ -18,10 +19,8 @@ Let's get started!
 First, we have to understand why we need backpropagation in the first place. Consider a single layer neural network:
 
 $$
-\begin{align*}
-z &\equiv Wx + b\\
-a &\equiv \varphi(z)
-\end{align*}
+z \equiv Wx + b\\
+a \equiv \varphi(z)
 $$
 
 where $\varphi$ is a sigmoid ($\varphi(z) = \frac{1}{1+\exp(-z)}$). Conventionally, we call $z$ the weighted sum or pre-activation and $a$ the post-activation or simply the activation. For our example, suppose that $W = [2~~~-3]$ and $b = -3$. In practice, our weight matrix is initialized to small, random values to break network symmetry, and our biases are initialized to zero.
@@ -69,41 +68,33 @@ $$
 Notice that each function in the numerator is a function of the variable in the denominator. Now all that's left to do is compute these partial derivatives and plug in values! Let's start with the outermost partial derivative:
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial a} &= -(y-a)\\
-&= -(1 - 0.73)\\
-&= -0.27
-\end{align*}
+\frac{\partial C}{\partial a} = -(y-a)\\
+= -(1 - 0.73)\\
+= -0.27
 $$
 
 Now we have to compute the partial derivative of the output of the sigmoid with respect to the input of the sigmoid. Luckily, the sigmoid has an easy derivative. Also, notice that $a\equiv\varphi(z)$, so a substitution saves us a computation.
 
 $$
-\begin{align*}
-\frac{\partial a}{\partial z} &= \varphi(z)[1-\varphi(z)]\\
-& = a(1-a)\\
-&= 0.73\cdot(1-0.73)\\
-&= 0.1971
-\end{align*}
+\frac{\partial a}{\partial z} = \varphi(z)[1-\varphi(z)]\\
+ = a(1-a)\\
+= 0.73\cdot(1-0.73)\\
+= 0.1971
 $$
 
 Finally, we have to compute the partial derivative of the weighted input with respect to the actual parameter $w_1$.
 
 $$
-\begin{align*}
-\frac{\partial z}{\partial w_1} &= x_1\\
-&= -1
-\end{align*}
+\frac{\partial z}{\partial w_1} = x_1\\
+= -1
 $$
 
 Finally, we can multiply everything together to get the partial derivative of the cost function with respect to $w_1$! This is the value we use for updating $w_1$ with gradient descent.
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial w_1} &= \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial w_1}\\
-&= -0.27\cdot 0.1971\cdot -1\\
-&= 0.053217
-\end{align*}
+\frac{\partial C}{\partial w_1} = \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial w_1}\\
+= -0.27\cdot 0.1971\cdot -1\\
+= 0.053217
 $$
 
 Congratulations! You just performed backpropagation by hand! It wasn't that bad, was it?
@@ -123,12 +114,10 @@ $$
 Now we simply compute $\delta$ once and multiply it by $\frac{\partial z}{\partial w_1}$ or $\frac{\partial z}{\partial w_2}$. But what about the bias? 
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial b} &= \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial b}\\
-&= \delta\frac{\partial z}{\partial b}\\
-&= \delta\cdot 1\\
-&= \delta
-\end{align*}
+\frac{\partial C}{\partial b} = \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial b}\\
+= \delta\frac{\partial z}{\partial b}\\
+= \delta\cdot 1\\
+= \delta
 $$
 
 The bias is exactly equal to the error gradient $\delta$! This is process of computing the partial derivatives backward through the network is also why one "step" of backpropagation is sometimes called the backward pass.
