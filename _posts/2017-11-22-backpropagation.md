@@ -6,7 +6,7 @@ date: 2017-11-22
 mathjax: true
 ---
 
-Backpropagation is arguable one of the most important algorithms in all of computer science. It's certainly the most important in neural networks and deep learning. Unfortunately, many students don't really understand what it is, why it is needed, or what it actually computes. There seems to be two prevalent types of explanations: the super-high-level, hand-wavy one and the "boards and boards of equations" one. In reality, these are really two different views of the same thing.  Having a solid understanding of backpropagation means you can explain it in both of these ways. My goal is to provided an alternate explanation of backpropagation that's sandwiched right in between these two views.
+Backpropagation is arguably one of the most important algorithms in all of computer science. It's certainly the most important in neural networks and deep learning. Unfortunately, many students don't really understand what it is, why it is needed, or what it actually computes. There seems to be two prevalent types of explanations: the super-high-level, hand-wavy one and the "boards and boards of equations" one. In reality, these are really two different views of the same thing.  Having a solid understanding of backpropagation means you can explain it in both of these ways. My goal is to provided an alternate explanation of backpropagation that's sandwiched right in between these two views.
 
 Many students treat backpropagation and training of neural networks as some mystic black-box where you provide some input and ground-truth data and the machine does some magical computations. Backpropagation is actually much simpler than most students think it is.
 
