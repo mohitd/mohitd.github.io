@@ -8,4 +8,4 @@ date: 2015-05-01
 location: "Riverside, Ohio, USA"
 ---
 
-Supervised as an instructor introduction to computer vision, for a small group of undergrads.
+Supervised as an instructor introduction to computer vision for a small group of undergrads.
