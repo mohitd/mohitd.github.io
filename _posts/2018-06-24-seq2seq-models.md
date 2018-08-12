@@ -32,8 +32,10 @@ Even with our handling of the input sequence using a plain neural network, the a
 A **recurrent neural network** or **RNN** is a kind of neural network that specializes in processing sequence data, particularly sequences of vectors. (We call these "vanilla" or "plain" RNNs since they are the most fundamental design of RNNs; we'll see more complicated models later.) There are many different flavors of RNNs, but the most general one, shown in the figure above, takes in a sequence of inputs and produces a sequence of outputs for each input. (There are RNNs that take in a _sequence_ of inputs and produce a _single_ output for tasks like sentiment classification; there are also RNNs that do the opposite.) Mathematically, plain RNNs are quite simple: they can be described using only the following two equations.
 
 $$
-h_t = \tanh(W^{(xh)}x_t + W^{(hh)}h_{t-1} + b^{(h)})\\
-\hat{y_t} = W^{(hy)}h_t + b^{(y)}
+\begin{align*}
+h_t &= \tanh(W^{(xh)}x_t + W^{(hh)}h_{t-1} + b^{(h)})\\
+\hat{y_t} &= W^{(hy)}h_t + b^{(y)}
+\end{align*}
 $$
 
 where
@@ -73,13 +75,15 @@ A better approach to solve both of these problems is to redesign the entire RNN 
 The LSTM cell replaces the internal workings of the RNN to allow the gradient to flow more easily to the earlier states. Instead of the two equations that define the vanilla RNN, the following seven equations define the LSTM cell.
 
 $$
-f_t = \sigma(W^{(f)}[h_{t-1}; x_t] + b^{(f)})\\
-i_t = \sigma(W^{(i)}[h_{t-1}; x_t] + b^{(i)})\\
-g_t = \tanh(W^{(g)}[h_{t-1}; x_t] + b^{(g)})\\
-o_t = \sigma(W^{(o)}[h_{t-1}; x_t] + b^{(o)})\\
-C_t = f_t \odot C_{t-1} + i_t \odot g_t\\
-h_t = o_t \odot \tanh(C_t)\\
-\hat{y_t} = W^{(y)}h_t + b^{(y)}
+\begin{align*}
+f_t &= \sigma(W^{(f)}[h_{t-1}; x_t] + b^{(f)})\\
+i_t &= \sigma(W^{(i)}[h_{t-1}; x_t] + b^{(i)})\\
+g_t &= \tanh(W^{(g)}[h_{t-1}; x_t] + b^{(g)})\\
+o_t &= \sigma(W^{(o)}[h_{t-1}; x_t] + b^{(o)})\\
+C_t &= f_t \odot C_{t-1} + i_t \odot g_t\\
+h_t &= o_t \odot \tanh(C_t)\\
+\hat{y_t} &= W^{(y)}h_t + b^{(y)}
+\end{align*}
 $$
 
 where
