@@ -18,6 +18,7 @@ Our robot can only move one tile at a time, but the motion is nondeterministic. 
 Given this information about our GridWorld game, our goal is to come up with a _policy_ for our environment that tells our robot which action to take based on where it is in the world to get to the treasure.
 
 # Markov Decision Processes (MDPs)
+
 There are several techniques to solving our game, but we need to formalize our game into a Markov Decision Process (MDP) to use these methods. There are four components to an MDP:
 
 1. A set of all possible configurations of our game $S$ called the __state space__.
@@ -29,19 +30,20 @@ In addition to components, we also have two additional "practicality" components
 
 In the context of our GridWorld game, $S$ is all possible configurations of our GridWorld, i.e., the position of our robot. $A$, our action space, is up, down, left, and right. For our purposes, let's define the transition function like this: 80% of the time, our robot will take the correct action, but 10% of the time, our robot will move in another direction besides behind it. For example, if we tell our robot to move to the right, there's a 80% chance it will do that, but there's a 10% chance it will move up and a 10% chance it will move down. If we tell our robot to move up, there's a 80% chance it will do that, but there's a 10% chance it will move left and a 10% chance it will move right. This is just an arbitrary definition of the transition function to make the point that our actions for an MDP is nondeterministic.
 
-The only requirement of our transition function is that it must make a true probability distribution over all of the states. Another interpretation of $T(s,a,s')$ is that it maps state-action pairs $(s,a)$ to a new state $s'$. So all of the values of this function must sum to one. Mathematically, $\sum_{s'\in S}T(s,a,s') = 1$ must be true. Our transition function follows this rule because all of the nonzero values sum to one: 
+The only requirement of our transition function is that it must make a true probability distribution over all of the states. Another interpretation of $T(s,a,s')$ is that it maps state-action pairs $(s,a)$ to a new state $s'$. So all of the values of this function must sum to one. Mathematically, $\sum_{s'\in S}T(s,a,s') = 1$ must be true. Our transition function follows this rule because all of the nonzero values sum to one:
 
 $$
 \sum_{s'\in S}T(s,a,s') = \underbrace{0.8}_{\text{correct action}}+\underbrace{0.1+0.1}_{\text{incorrect actions}}=1
 $$
 
-Since our environment is restricted so that it is not possible to transition from any state to any other state, those values are just zero, i.e., we can only move one adjacent tile at a time, not teleport across the map. 
+Since our environment is restricted so that it is not possible to transition from any state to any other state, those values are just zero, i.e., we can only move one adjacent tile at a time, not teleport across the map.
 
 ![Transition Function](/images/reinforcement-learning/transition-function.svg "Transition Function")
 
 Finally, our reward function is fairly simple: if we end up recovering the treasure, we get a reward of $+1$, and we get a reward of $-1$ if we land in the fire pit. (These values are arbitrary, though rewards are usually bound between $-1$ and $+1$ conventionally.) Based on how we defined our reward function, you may notice that we don't really need it to be a function of $a$ or $s'$ since we're only concerned with which state $s$ we're currently in. In this case, we can reduce our reward function to just being a function of $s$: $R(s)$. We'll make this reduction later on to help simplify equations.
 
 ## Solving MDPs with Value Iteration
+
 Now that we have a formal definition of our MDP, we want to solve for the optimal policy $\pi^{\ast}(s)$ that tell us which action to take in state $s$ to maximize our future expected reward. __Value Iteration__ is one way we can figure out the optimal policy. For each state $s$, we compute the future expected reward of starting in state $s$ and acting optimally until the end of the MDP. We'll call this value $V^{\ast}(s)$, and there's one for each state. The reason we're computing the expected value is because MDPs are nondeterministic.
 
 We can compute $V^*(s)$ using the __Bellman Equation__:
@@ -170,6 +172,7 @@ By "until convergence", we mean that the policy doesn't change. This is the same
 Policy iteration has some issues too, namely the $\mathcal{O}(A^S)$ complexity for each iteration. Although the optimal policy converges much slower with value iteration in terms of number of iterations, policy iteration requires more time per iteration since it runs a smaller version of value iteration for each iteration.
 
 ## Differences between value iteration and policy iteration
+
 To recap, value iteration and policy iteration are both techniques used to solve MDPs and compute the optimal policy $\pi^*(s)$ given a complete MDP definition.
 
 Value iteration is broken up into two steps: finding the optimal values (iterative) and policy extraction (one-time). With value iteration, we start with an arbitrary value function and iteratively find the optimal values. At each iteration, we refine the values and move them closer to the optimal ones. Each iteration takes $\mathcal{O}(S^2A)$. After we find the optimal values, we perform policy extraction once to compute our optimal policy from our optimal values.
@@ -185,9 +188,11 @@ When solving an MDP using either value or policy iteration, notice we don't actu
 For example, think about learning to play a new video game. Starting out, you don't know which buttons or button combinations lead to more points nor what will happen to the game state. Nevertheless, many people play video games and get high scores all of the time. How do they do it? The key is they play the game over and over again to _learn_ which actions tend to produce more points! This is the central idea behind reinforcement learning: playing the game!
 
 # Reinforcement Learning
+
 Since we don't know our reward or transition functions, we still need a way to compute the optimal policy, but this time, we have to play out the game or perform the task.
 
 ## Model-based Learning
+
 One thought might be to figure out the reward and transition functions by playing the game and tallying up the observations (and normalizing for the transition function).
 
 For example, suppose we're in a particular state $s$ and tell our agent to move to the right, and it does. Then, in the next game, we find ourselves back in $s$ and tell our robot to perform the same action, and it moves down instead. We keep track of whenever we are in state $s$, which action we perform, and which state we end up in. After playing 100 games, perhaps we find that 90 times, in state $s$, the robot actually moves like we expect it to, but 10 times, it did a 180 spin and moved in the opposite direction. We can normalize these tallies to come up with a model for our transition function: 90% of the time our robot moves in the correct direction, but 10% of the time, the robot moves in the opposite direction. We can take a similar approach to learning the reward function.
@@ -195,6 +200,7 @@ For example, suppose we're in a particular state $s$ and tell our agent to move 
 This approach is called a __model-based approach__ or a __model-based algorithm__. By playing the game, we build _models_ of our transition and reward functions. We play the game over and over again until our models of both functions converge, i.e., they stop changing drastically. Then, we can use value or policy iteration to compute our policy just like with MDPs!
 
 ## Q-learning
+
 As you might have inferred, if there are model-based algorithms, there are also __model-free algorithms__. These algorithms do not learn a model; instead, they derive the optimal policy directly, without explicitly learning the reward or transition functions.
 
 The algorithm we'll look at is called __Q-learning__, and it's the basis for many deep reinforcement learning models. Let's revisit value iteration briefly. One issue with value iteration was that we had to recover the optimal policy as a separate step because we took the max over all of the actions and max isn't reversible/invertible. The idea behind Q-learning is to store the value for _each action at each state_. This is called a __Q-value__, i.e., a state-action pair. At each state, we store the future expected reward _for each action_. By using Q-values instead of just values, we can quickly and trivially recover the policy: in state $s$, we simply select the action with the largest Q-value!
@@ -234,12 +240,15 @@ Another improvement, taken from neural networks, is to decay the learning rate $
 These two improvements can help our Q-learning algorithm converge to the optimal policy quicker.
 
 # Conclusion
+
 Markov Decision Processes give us a way to formalize games and tasks that involve an agent and an environment. With an MDP, the goal is to find the optimal policy that tells our agent how to act in the environment to produce the maximum expected reward. We can solve for this policy using value iteration, figuring out the future expected reward at each state and computing the policy, or through policy iteration, directly modifying the policy until it converges. However, MDP make critical assumptions about the real world: we know how our agent will act given any action in any state and we know which actions lead to good rewards. Reinforcement learning, specifically Q-learning, discards these assumptions and computes the policy without directly knowing either of those things. Instead, we actually have our agent take actions in the environment and observe their outcome. From this, we can determine which actions lead to the maximum expected reward.
 
 Q-learning is a fundamental algorithm that acts as the springboard for the deep reinforcement learning algorithms used to beat humans at Go and DOTA. While I didn't cover deep reinforcement learning in this post (coming soon 🙂), having a good understanding Q-learning helps in understanding the modern reinforcement learning algorithms.
 
 # Appendix
+
 ## Alternative Form of the Bellman Equation
+
 There's another, equivalent form of the original Bellman Equation that tends to be used more frequently:
 
 $$
@@ -251,15 +260,13 @@ This simpler form runs a bit faster because we don't have to compute the reward 
 We can reduce the Bellman Equation down to this simplified one as follows:
 
 $$
-\begin{align*}
-V_{k+1}(s)&=\max_a\sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V_k(s')]\\
-&=\max_a\sum_{s'} T(s,a,s')[R(s) + \gamma V_k(s')]\\
-&=\max_a\{\sum_{s'} T(s,a,s')R(s) + \sum_{s'} T(s,a,s')\cdot\gamma V_k(s')\}\\
-&=\max_a\{R(s)\sum_{s'} T(s,a,s') + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
-&=\max_a\{R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
-&=R(s) + \max_a\gamma\sum_{s'} T(s,a,s')V_k(s')\\
-V_{k+1}(s)&=R(s) + \gamma\max_a\sum_{s'} T(s,a,s')V_k(s')
-\end{align*}
+V_{k+1}(s)=\max_a\sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V_k(s')]\\
+=\max_a\sum_{s'} T(s,a,s')[R(s) + \gamma V_k(s')]\\
+=\max_a\{\sum_{s'} T(s,a,s')R(s) + \sum_{s'} T(s,a,s')\cdot\gamma V_k(s')\}\\
+=\max_a\{R(s)\sum_{s'} T(s,a,s') + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
+=\max_a\{R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
+=R(s) + \max_a\gamma\sum_{s'} T(s,a,s')V_k(s')\\
+V_{k+1}(s)=R(s) + \gamma\max_a\sum_{s'} T(s,a,s')V_k(s')
 $$
 
 There are a few points to note here. $\sum_{s'} T(s,a,s')=1$ because our transition function is a probability distribution over all possible ending states by taking action $a$ in state $s$. Also, since $R(s)$ is not a function of actions anymore, we can reduce $\max$ to operate only on $\sum_{s'} T(s,a,s')V_k(s')$ rather than $R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')$. Finally $\gamma$ is just a constant so we can pull it out of the $\max$ operation.

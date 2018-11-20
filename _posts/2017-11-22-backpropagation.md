@@ -19,10 +19,8 @@ Let's get started!
 First, we have to understand why we need backpropagation in the first place. Consider a single layer neural network:
 
 $$
-\begin{align}
-z & \equiv Wx + b\\\\
-a & \equiv \varphi(z)
-\end{align}
+z \equiv Wx + b\\
+a \equiv \varphi(z)
 $$
 
 where $\varphi$ is a sigmoid ($\varphi(z) = \frac{1}{1+\exp(-z)}$). Conventionally, we call $z$ the weighted sum or pre-activation and $a$ the post-activation or simply the activation. For our example, suppose that $W = [2~~~-3]$ and $b = -3$. In practice, our weight matrix is initialized to small, random values to break network symmetry, and our biases are initialized to zero.
@@ -70,41 +68,33 @@ $$
 Notice that each function in the numerator is a function of the variable in the denominator. Now all that's left to do is compute these partial derivatives and plug in values! Let's start with the outermost partial derivative:
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial a} &= -(y-a)\\
-&= -(1 - 0.73)\\
-&= -0.27
-\end{align*}
+\frac{\partial C}{\partial a} = -(y-a)\\
+= -(1 - 0.73)\\
+= -0.27
 $$
 
 Now we have to compute the partial derivative of the output of the sigmoid with respect to the input of the sigmoid. Luckily, the sigmoid has an easy derivative. Also, notice that $a\equiv\varphi(z)$, so a substitution saves us a computation.
 
 $$
-\begin{align*}
-\frac{\partial a}{\partial z} &= \varphi(z)[1-\varphi(z)]\\
-&= a(1-a)\\
-&= 0.73\cdot(1-0.73)\\
-&= 0.1971
-\end{align*}
+\frac{\partial a}{\partial z} = \varphi(z)[1-\varphi(z)]\\
+= a(1-a)\\
+= 0.73\cdot(1-0.73)\\
+= 0.1971
 $$
 
 Finally, we have to compute the partial derivative of the weighted input with respect to the actual parameter $w_1$.
 
 $$
-\begin{align*}
-\frac{\partial z}{\partial w_1} &= x_1\\
-&= -1
-\end{align*}
+\frac{\partial z}{\partial w_1} = x_1\\
+= -1
 $$
 
 Finally, we can multiply everything together to get the partial derivative of the cost function with respect to $w_1$! This is the value we use for updating $w_1$ with gradient descent.
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial w_1} &= \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial w_1}\\
-&= -0.27\cdot 0.1971\cdot -1\\
-&= 0.053217
-\end{align*}
+\frac{\partial C}{\partial w_1} = \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial w_1}\\
+= -0.27\cdot 0.1971\cdot -1\\
+= 0.053217
 $$
 
 Congratulations! You just performed backpropagation by hand! It wasn't that bad, was it?
@@ -121,15 +111,13 @@ $$
 \delta \equiv \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}
 $$
 
-Now we simply compute $\delta$ once and multiply it by $\frac{\partial z}{\partial w_1}$ or $\frac{\partial z}{\partial w_2}$. But what about the bias? 
+Now we simply compute $\delta$ once and multiply it by $\frac{\partial z}{\partial w_1}$ or $\frac{\partial z}{\partial w_2}$. But what about the bias?
 
 $$
-\begin{align*}
-\frac{\partial C}{\partial b} &= \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial b}\\
-&= \delta\frac{\partial z}{\partial b}\\
-&= \delta\cdot 1\\
-&= \delta
-\end{align*}
+\frac{\partial C}{\partial b} = \frac{\partial C}{\partial a}\frac{\partial a}{\partial z}\frac{\partial z}{\partial b}\\
+= \delta\frac{\partial z}{\partial b}\\
+= \delta\cdot 1\\
+= \delta
 $$
 
 The bias is exactly equal to the error gradient $\delta$! This is process of computing the partial derivatives backward through the network is also why one "step" of backpropagation is sometimes called the backward pass.
@@ -144,7 +132,7 @@ When computing backpropagation using a computation graph, we compute the "local 
 
 Now we can perform gradient descent. To illustrate that we do get a smaller loss value with gradient descent, let's update the parameters with $\alpha=1$. This learning rate is way too large to use in practice, but it works well for our small example. Our new parameters are $w_1=1.94, w_2=-3.106, b=-2.947$, and, if we compute a forward pass using the same input but these new parameters, we get an activation of $0.79$, which is closer to our target value of $1$! Backpropagation really works, even in small examples by hand!
 
-**Properties of the Gradient in Computation Graphs**. Let's go back to the computation graph. We notice some interesting characteristics of the gradient as it progresses backward through the nodes that give us some insight on how different operations affect the gradient. For example, consider what happens to the gradient at the addition operation node: it copies! For the multiplication gate, we perform a kind of "scaled switch" where we multiply the gradient by the opposite value. Mathematically, $\frac{\partial z}{\partial w_1}=x_1$ and $\frac{\partial z}{\partial x_1}=w_1$. 
+**Properties of the Gradient in Computation Graphs**. Let's go back to the computation graph. We notice some interesting characteristics of the gradient as it progresses backward through the nodes that give us some insight on how different operations affect the gradient. For example, consider what happens to the gradient at the addition operation node: it copies! For the multiplication gate, we perform a kind of "scaled switch" where we multiply the gradient by the opposite value. Mathematically, $\frac{\partial z}{\partial w_1}=x_1$ and $\frac{\partial z}{\partial x_1}=w_1$.
 
 Using the computation graph shows that backpropagation is more general than just neural networks. Although backpropagation was invented specifically for neural networks, its underlying concept, the chain rule, can be applied for any computation! That what makes backpropagation so powerful! But this same beauty also makes backpropagation dangerous: students often use a deep learning library, e.g., Tensorflow, PyTorch, etc., and think "well I don't have to know about backpropagation since the automatic differentiation will just train anything I code up." This kind of thinking gets us into trouble when we try to train deep models.
 

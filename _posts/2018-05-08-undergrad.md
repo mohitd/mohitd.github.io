@@ -9,7 +9,8 @@ I recently finished my last year as an undergrad, and I thought I'd share some n
 _DISCLAIMER: I was a computer science and engineering major at a fairly large university (Ohio State University), but I'll try my best to generalize these points._
 
 # General
-<hr>
+
+---
 
 **Always get a full night's sleep**. There have been [studies](http://www.sciencedirect.com/science/article/pii/0301051178900315) and [articles](https://pdfs.semanticscholar.org/8501/fa541d13634b021a7cab8d1d84ba2c5b9a7c.pdf) that show REM sleep, i.e., the deepest kind of sleep, helps with memory consolidation and committing to long-term memory. For example, being well-rested for several days before an exam helps the brain commit the exam content to long-term memory.
 
@@ -42,7 +43,8 @@ Also on my site, you'll notice I have other blog posts that are more explanatory
 Also, don't be discouraged by experts. I'm positive there are many people much smarter than I when it comes to backpropagation or RBMs and have already written about them many times over. But not everyone learns in the same way, so expecting everyone to learn from the same slide deck or article is ludicrous! Having a variety of explanations at different levels about a topic is bound to help someone learn.
 
 # Studying
-<hr>
+
+---
 
 **Re-derive what you're learning from scratch**.
 > What I cannot create, I do not understand. - Richard Feynman  
@@ -73,7 +75,8 @@ In the event you _are_ allowed to bring a cheat sheet, then add worked-through e
 **Prefer concreteness to abstractness**. Many professors, TAs, and students will try to teach topics starting from the most general definitions since they tend to be the most complete and comprehensive. However, I find it easier to do a concrete example. For instance, backpropagation is a particular topic in neural networks that many students struggle to understand. It's either presented with pages of equations or as a magic black-box. So if you're having a hard time understanding how it works, do a small example by hand, and it will help your understanding. You'll know how all of the theory combines together to get to your final concrete answer. Abstractions are difficult to understand at first since we live in a concrete world; do an example or problem that adds concrete numbers to the abstract concept.
 
 # Exams
-<hr>
+
+---
 
 **Eat something before the exam**. This piece of advice is a bit peculiar but important nonetheless. Never take an exam on an empty stomach but also don't take an exam in a food coma. Eat before the exam so your food has time to settle. Hunger is not something you want to be focusing on during the exam!
 
@@ -88,7 +91,8 @@ In the event you _are_ allowed to bring a cheat sheet, then add worked-through e
 **Communicate to your grader**. The point of the exam is to show your professor or grader that you know the material. Convey that message. Even if you don't know exactly how to solve a problem, at least write down what you would do or how you would proceed. But don't write an essay on a problem. That leaves more chance for the grader to find a mistake and take off points. This also makes the grader unhappy, and an unhappy grader is not good. Make your grader happy by doing clean work and communicating.
 
 # Attending Class
-<hr>
+
+---
 
 **Attend class. (unless you think your time is better spent elsewhere)**. Avoid skipping class in general, but spend your time better when you do. In other words, don't skip class just to play video games. There will be times where you'll be very comfortable with a topic, and the professor is lecturing on it for a week. If you're slammed with work from other classes or a paper deadline, those should probably be prioritized, but still take a look at the slide deck or grab the notes just in case.
 
@@ -100,7 +104,7 @@ At one point, I was well-versed in C; I was working on several C projects, schoo
 
 **Be wary of whom you work with on group projects**. Group projects are the bane of every student, from the highly motivated student that is genuinely interested in learning the material to the student that just wants to get the class over with. I've been both, and I suspect many of you have as well. Assuming you have the choice, select your group members wisely! If you don't have a choice, then you just have to work with what you have!
 
-<br>
+---
 
 **Time is a non-renewable resource**. Grades do not define you. Find a balance between "never coming to class" and "spending every waking minute studying". Neither of these extremes will be beneficial to you.
 
