@@ -19,7 +19,7 @@ Let's get started!
 First, we have to understand why we need backpropagation in the first place. Consider a single layer neural network:
 
 $$
-z \equiv Wx + b\\
+z \equiv Wx + b\\\\
 a \equiv \varphi(z)
 $$
 
