@@ -19,8 +19,8 @@ Let's get started!
 First, we have to understand why we need backpropagation in the first place. Consider a single layer neural network:
 
 $$
-z &\equiv Wx + b\\
-a &\equiv \varphi(z)
+z \equiv Wx + b\\
+a \equiv \varphi(z)
 $$
 
 where $\varphi$ is a sigmoid ($\varphi(z) = \frac{1}{1+\exp(-z)}$). Conventionally, we call $z$ the weighted sum or pre-activation and $a$ the post-activation or simply the activation. For our example, suppose that $W = [2~~~-3]$ and $b = -3$. In practice, our weight matrix is initialized to small, random values to break network symmetry, and our biases are initialized to zero.
