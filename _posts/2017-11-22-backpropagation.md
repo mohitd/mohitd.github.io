@@ -20,8 +20,8 @@ First, we have to understand why we need backpropagation in the first place. Con
 
 $$
 \begin{align}
-z &\equiv Wx + b\\\\
-a &\equiv \varphi(z)
+z \equiv Wx + b\\\\
+a \equiv \varphi(z)
 \end{align}
 $$
 
