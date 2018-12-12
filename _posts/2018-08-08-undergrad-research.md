@@ -1,7 +1,8 @@
 ---
+layout: post
 title: "Undergraduate Research"
 excerpt: "I chronicle some lessons learned from my 2.5 years as an undergrad student researcher."
-comments: true
+date: 2018-08-08
 ---
 
 I recently graduated with a B.S. in Computer Science and Engineering this May, and I'd like to share my experience as a undergraduate researcher as well as some tips and tricks that I've accumulated over the past 2.5 years. Hopefully, this guide will be useful to someone, somewhere that is thinking about getting involved with undergrad research but doesn't quite know how to get started. I'll discuss how to get started, what to expect, and some useful pieces of advice that may help you during your undergrad research career.

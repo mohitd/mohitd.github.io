@@ -1,8 +1,8 @@
 ---
+layout: post
 title: "Sequence-to-Sequence Models"
 excerpt: "I discuss the magic behind attention-based sequence-to-sequence models, the very same models used in tasks such as machine translation."
-comments: true
-mathjax: true
+date: 2018-06-24
 ---
 
 Sequence-to-sequence (seq2seq) models fascinated me when I learned about recurrent neural networks. They're particularly useful for tasks such as machine translation, i.e., translating between languages using machine learning. I was very interested in learning more about these kinds of models: how they work, how to format the input and output training data, and how adding an attention mechanism helps. Similar to my [other post on backpropagation](/backpropagation), I was a bit disappointed to see that a good number of explanations of these were either buried in mathematical rigor or very hand-wavy (albeit with source code!) So I'm going to try to find a middle ground of explaining seq2seq models. First, I'll discuss recurrent neural networks and Long Short-term Memory (LSTM) Networks. After, I'll give a quick overview of the problem of machine translation and discuss seq2seq models.

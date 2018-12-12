@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Depth Perception: The Next Big Thing in Computer Vision"
 excerpt: "Devices like the HoloLens and Tango have depth-sensing capabilities, allowing for a completely different level of augmented reality."
 comments: true

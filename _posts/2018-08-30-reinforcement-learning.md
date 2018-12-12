@@ -1,8 +1,8 @@
 ---
+layout: post
 title: "Reinforcement Learning"
 excerpt: "I describe the fundamental algorithms and techniques used in reinforcement learning."
-comments: true
-mathjax: true
+date: 2018-08-30
 ---
 
 In the past few years, computers have achieved better than human-level performance in many different tasks such as classifying images or transcribing text from an audio recording. In addition to these kinds of tasks, computers have also beaten us humans at games: Deep Blue at chess, AlphaGo at Go, OpenAI Five at DOTA. This post explores the very fundamental algorithms that these advanced neural architectures were founded on. While we won't get into the deep reinforcement learning just yet, we'll see how it originated from Markov Decision Processes and Q-learning. We'll discuss formulating our game as a Markov Decision Process and solving it directly through that approach. Then we'll discuss the most foundational reinforcement learning algorithm: Q-learning.

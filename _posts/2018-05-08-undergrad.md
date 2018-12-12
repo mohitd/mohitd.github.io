@@ -1,7 +1,8 @@
 ---
+layout: post
 title: "Undergraduate Tips and Tricks"
 excerpt: "After finishing finish my undergrad, I'll share some pointers (pun absolutely intended) that I've learned over the past few years."
-comments: true
+date: 2018-05-08
 ---
 
 I recently finished my last year as an undergrad, and I thought I'd share some neat tips and tricks that I've accumulated over the years in the hopes that someone will find some of these points useful.
