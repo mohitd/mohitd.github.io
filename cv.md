@@ -6,22 +6,12 @@ redirect_from:
   - /resume
 ---
 
-Education
-======
-* B.S. _with Honors Research Distinction_ in Computer Science and Engineering, The Ohio State University, May 2018
-
-Awards
-======
-* Dean's List
-* Honors Undergrad Thesis Scholarship
-* Honors Program with Scholarship
-* Computer Science and Engineering Department's Undergraduate Research Award
-* 3rd Place Undergrad 3-Minute Thesis Competition
-* 2nd Place in 2014 OHI/O Hackathon and Finalist of 2015 OHI/O Hackathon
-
 Work experience
 ======
-2014 - Now: **Zenva**  
+2019 - Now: **Amazon Lab126**  
+_Software Development Engineer_ 
+
+2014 - 2019: **Zenva**  
 _Technical Writer_
 * Writing in-depth articles on Computer Vision, Natural Language Processing, and Machine Learning for those new to the field
 
@@ -29,7 +19,7 @@ _Technical Writer_
 _Undergrad Researcher_
 * Conducted research for Honors Thesis in structured information extraction from images
 
-Summer 2017: **Amazon Lab126**  
+Summer 2017 & 2018: **Amazon Lab126**  
 _Software Development Intern_
 * Created framework for visualization of various sensors and measurements
 * Designed and developed data structure, creation, and update for occupancy map from sensor data
@@ -52,6 +42,19 @@ Skills
 * Linux
 * Python
 * C/C++
+
+Education
+======
+* B.S. _with Honors Research Distinction_ in Computer Science and Engineering, The Ohio State University, May 2018
+
+Awards
+======
+* Dean's List
+* Honors Undergrad Thesis Scholarship
+* Honors Program with Scholarship
+* Computer Science and Engineering Department's Undergraduate Research Award
+* 3rd Place Undergrad 3-Minute Thesis Competition
+* 2nd Place in 2014 OHI/O Hackathon and Finalist of 2015 OHI/O Hackathon
 
 Publications
 ======
