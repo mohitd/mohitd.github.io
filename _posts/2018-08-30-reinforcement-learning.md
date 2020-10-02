@@ -260,13 +260,15 @@ This simpler form runs a bit faster because we don't have to compute the reward 
 We can reduce the Bellman Equation down to this simplified one as follows:
 
 $$
-V_{k+1}(s)=\max_a\sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V_k(s')]\\
-=\max_a\sum_{s'} T(s,a,s')[R(s) + \gamma V_k(s')]\\
-=\max_a\{\sum_{s'} T(s,a,s')R(s) + \sum_{s'} T(s,a,s')\cdot\gamma V_k(s')\}\\
-=\max_a\{R(s)\sum_{s'} T(s,a,s') + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
-=\max_a\{R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
-=R(s) + \max_a\gamma\sum_{s'} T(s,a,s')V_k(s')\\
-V_{k+1}(s)=R(s) + \gamma\max_a\sum_{s'} T(s,a,s')V_k(s')
+\begin{aligned}
+V_{k+1}(s)&=\max_a\sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V_k(s')]\\
+&=\max_a\sum_{s'} T(s,a,s')[R(s) + \gamma V_k(s')]\\
+&=\max_a\{\sum_{s'} T(s,a,s')R(s) + \sum_{s'} T(s,a,s')\cdot\gamma V_k(s')\}\\
+&=\max_a\{R(s)\sum_{s'} T(s,a,s') + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
+&=\max_a\{R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')\}\\
+&=R(s) + \max_a\gamma\sum_{s'} T(s,a,s')V_k(s')\\
+V_{k+1}(s)&=R(s) + \gamma\max_a\sum_{s'} T(s,a,s')V_k(s')
+\end{aligned}
 $$
 
 There are a few points to note here. $\sum_{s'} T(s,a,s')=1$ because our transition function is a probability distribution over all possible ending states by taking action $a$ in state $s$. Also, since $R(s)$ is not a function of actions anymore, we can reduce $\max$ to operate only on $\sum_{s'} T(s,a,s')V_k(s')$ rather than $R(s) + \gamma\sum_{s'} T(s,a,s')V_k(s')$. Finally $\gamma$ is just a constant so we can pull it out of the $\max$ operation.
