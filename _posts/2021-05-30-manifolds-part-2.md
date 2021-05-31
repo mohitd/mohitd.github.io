@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Manifolds - Part 2"
-excerpt: "Manifolds!"
+excerpt: "In the second part, I'll construct a manifold from scratch and redefine vectors, dual vectors, and tensors on a manifold."
 comments: true
 ---
 
