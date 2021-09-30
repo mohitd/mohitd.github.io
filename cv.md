@@ -8,18 +8,27 @@ redirect_from:
 
 Work experience
 ======
-2019 - Now: **Amazon Lab126**  
-_Software Development Engineer_ 
+2020 - Now: **Amazon Lab126**  
+_Software Development Engineer II_ 
+* Working on Amazon Astro
+
+2019 - 2020: **Amazon Lab126**  
+_Software Development Engineer I_ 
+* Worked on Amazon Astro
 
 2014 - 2019: **Zenva**  
 _Technical Writer_
 * Writing in-depth articles on Computer Vision, Natural Language Processing, and Machine Learning for those new to the field
 
+Summer 2018: **Amazon Lab126**  
+_Software Development Intern_
+* Worked on Amazon Astro
+
 2015 - 2018: **Department of Computer Science and Engineering, The Ohio University**  
 _Undergrad Researcher_
 * Conducted research for Honors Thesis in structured information extraction from images
 
-Summer 2017 & 2018: **Amazon Lab126**  
+Summer 2017: **Amazon Lab126**  
 _Software Development Intern_
 * Created framework for visualization of various sensors and measurements
 * Designed and developed data structure, creation, and update for occupancy map from sensor data
@@ -37,11 +46,18 @@ _Student Researcher_
 
 Skills
 ======
+* C/C++
+* Linux
+* Robotics, Perception
+* Quantum Computing
 * Computer Vision
 * Machine Learning & Deep Learning
-* Linux
 * Python
-* C/C++
+
+Open-source Contributions
+======
+* [IBM Qiskit Terra](https://github.com/qiskit/qiskit-terra)
+* [IBM Qiskit Community Textbook](https://github.com/qiskit-community/qiskit-textbook)
 
 Education
 ======
