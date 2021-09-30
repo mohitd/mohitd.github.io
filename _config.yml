@@ -16,10 +16,10 @@
 title: Mohit Deshpande's Blog
 email: mohitd2000@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Explanations, Contemplations, and Random Babble of a Computer Scientist
+  A codex for a forgetful computer scientist
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: mohidesh
+twitter_username: ficklephoton 
 github_username:  mohitd
 linkedin_username: mohitd2000
 
@@ -34,6 +34,9 @@ header_pages:
 # Build settings
 markdown: kramdown
 theme: minima
+
+plugins:
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
