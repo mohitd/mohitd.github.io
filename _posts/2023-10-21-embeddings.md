@@ -266,19 +266,3 @@ Some other interesting observations is with the other words: we see that snake a
 Embeddings are a word representation that preserves semantic properties of words, such as relations to other words and connotation, in a much better way than representing words as strings of characters. Representing documents as vectors is counter-intuitively more straightforward so we started with learning about term frequency and document frequency; that also helped illustrate some interesting concepts like how words that occur *too* frequently should be downweighted since they don't have discriminative power. To transition to representing individual words as embeddings, we learned about the distributional hypothesis that stated the meaning of a word depends on the context around it. Our first word embedding model word2vec trained embeddings with that in mind: train a model to predict if a word lies in the context window of a target word. Our next embedding model did a bit better by also looking at global word-word co-occurrences in addition to the local context window approach that word2vec uses. The final embedding model we discussed was a more recent type of model where we learn the embeddings from scratch as part of the language modeling task in an end-to-end fashion. Finally, we used embeddings to show how they can model semantic relations using word analogies as an example semantic understanding task.
 
 Now that we have a vectorized format for embeddings, we can use them for different kinds of language models, the most popular and accurate ones being neural network language models, which we'll cover next time 🙂
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
