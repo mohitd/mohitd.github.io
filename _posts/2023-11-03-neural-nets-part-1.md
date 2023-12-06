@@ -107,12 +107,12 @@ Putting everything together, we have the Perceptron Training Algorithm!
 
 Given a learning rate $\alpha$, set of weights $w_i$, and dataset $\mathcal{D} = \Big\\{ (x_1, y_1), \cdots, (x_N, y_N) \Big\\}$,
 1. Randomly initialize the weights somehow, e.g., $w_i\sim\mathcal{N}(0, \sigma^2_w)$ with some variance $\sigma^2_w$
-2. Until all examples classified correctly
+2. For each epoch
     1. For each training example $(x_j, y_j)$ in the dataset $\mathcal{D}$
         1. Run the input through the model to get a predicted class $\hat{y}_j = f(w\cdot x_j)$
         2. Update all weights using $w_i\gets w_i + \alpha(y_j-\hat{y}_j)x_j$
 
-This update algorithm is actually guaranteed to converge in a finite amount of time by the **Perceptron Convergence Theorem**. The proof itself isn't particularly insightful but the existence of the proof is: with a linearly separable dataset, we're guaranteed to converge after a finite number of mistakes.  
+An **epoch** is an full iteration where the network sees all of the training data exactly once; it's used to control the high-level loop in case the perceptron or network doesn't converge perfectly. That being said, this update algorithm is actually guaranteed to converge in a finite amount of time by the **Perceptron Convergence Theorem**. The proof itself isn't particularly insightful but the existence of the proof is: with a linearly separable dataset, we're guaranteed to converge after a finite number of mistakes.  
 
 Perceptrons are really easy to code up so let's go ahead and write one really quickly in Python using numpy.
 
