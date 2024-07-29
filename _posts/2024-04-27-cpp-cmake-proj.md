@@ -1,6 +1,6 @@
 ---
 layout: post
-title: " Anatomy of a Good-enough Modern CMake Project for C++ Libraries"
+title: "Anatomy of a Good-enough Modern CMake Project for C++ Libraries"
 excerpt: "CMake is the most common meta-build system used for building C/C++ libraries and applications. In this post, I'll describe the anatomy of a good-enough C++ library project structure and a good-enough way to build it using CMake."
 comments: true
 ---
