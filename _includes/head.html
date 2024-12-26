@@ -8,13 +8,15 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      TeX: {
-        equationNumbers: {
-          autoNumber: "AMS"
-        },
-        Macros: {
+  <script>
+    window.MathJax = {
+      loader: {
+        load: ['[tex]/ams', '[tex]/braket', '[tex]/color'],
+        versionWarnings: false
+      },
+      tex: {
+        inlineMath: [['$','$']],
+        macros: {
           R: "{\\mathbb{R}}",
           d: "{\\mathrm{d}}",
           D: "{\\mathrm{D}}",
@@ -24,14 +26,12 @@
           ad: "{\\text{ad}}",
           Ad: "{\\text{Ad}}",
           sgn: "{\\text{sgn}}"
-        }
+        },
+        tags: 'ams',
+        packages: { '[+]': ['ams', 'braket', 'color'] }
       },
-      tex2jax: {
-        inlineMath: [ ['$','$'] ],
-        processEscapes: true,
-      }
-    });
+    };
   </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" charset="utf-8" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   {% seo %}
 </head>
