@@ -24,8 +24,9 @@ Both of these require active power since the liquid crystals need to hold their 
 
 E-ink is built differently: at a high level, each "pixel" is a microcapsule filled with a viscous oil and electrically charged micropigments. Monochrome e-ink has positively-charged black pigment particles and negatively-charged white pigment particles. These microcapsules are sandwiched between two electrodes. When a positive or negative voltage is applied across those electrodes, the white and black pigments separate and we see either a white or black pixel, and the viscousity of the oil mediums holds the pigments in place (the technical term is **bistable**). What if we wanted to see different shades of grey? Grey is just some mixture of white and black pigments so we can't blindly apply a voltage across the electrodes. Instead, there's a more complicated control scheme where we apply voltages on a schedule, almost like pulsing them, until we get the right mixture of white and black pigments.
 
-![e-ink](/images/eink-picture-frame/e-ink.webp "e-ink")
-<small><i>Source: https://en.wikipedia.org/wiki/E_Ink</i>
+![e-ink](/images/eink-picture-frame/eink.webp "e-ink")
+<small><i>Source: https://en.wikipedia.org/wiki/E_Ink</i></small>
+<i>Legend:
 1. Upper layer
 2. Transparent electrode layer
 3. Transparent micro-capsules
@@ -37,7 +38,7 @@ E-ink is built differently: at a high level, each "pixel" is a microcapsule fill
 9. Light
 10. White
 11. Black
-</small>
+</i>
 
 The e-ink display that we're going to be using has multiple colors but the principle is the same: each color pigment is positively or negatively charged, *but not at the same level*. In other words, we can have some strongly positively-charged pigments and some weakly positively-charged pigments. So that already gets us four possible varieties total. Another dimension that's commonly used is the mass of the pigments: lighter pigments move quickly while heavier pigments move slowly. The control scheme becomes more complicated where the controller produces voltage waveforms instead of just a uniform voltage. For example, high voltage pulses could rapidly bring lighter pigments to the front. It's easy to jump into the details and I encourage you to do so if you're interested!
 
