@@ -34,3 +34,10 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 
 gem "webrick", "~> 1.8"
+
+# Former stdlib gems no longer bundled by default in Ruby 3.4+/4.0
+gem "logger"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "ostruct"
